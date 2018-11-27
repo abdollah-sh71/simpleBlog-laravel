@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href=" {{asset('css/bootstrap.min.css')}} " >
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
@@ -75,8 +75,8 @@
     @yield('content')
 
     <!-- JavaScripts -->
-    <script src="js/jquery.min.js" ></script>
-    <script src="js/bootstrap.min. js"></script>
+    <script src="{{asset('js/jquery.min.js')}}" ></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>

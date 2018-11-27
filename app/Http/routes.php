@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 
 
+Route::get('/blog', 'BlogsController@home' );
 Route::get('/test', 'PostsController@test' );
 
 
