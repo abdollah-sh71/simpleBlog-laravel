@@ -7,9 +7,10 @@
             <table class="table table-striped table-bordered">
               <tr>
                 <td><strong>#</strong></td>
-                <td><strong>TITLE</strong></td>
-                <td><strong>FULL NAME</strong></td>
-                <td><strong>PHONE</strong></td>
+                <td><strong>title</strong></td>
+                <td><strong>name</strong></td>
+                <td><strong>edit</strong></td>
+                <td><strong>delete</strong></td>
               </tr>
 
               @foreach($posts as $post)
@@ -19,7 +20,12 @@
                 <td>abdollah shams</td>
                 <td>
                   <form>
-                    <a class="hollow button" href="{{ route('edit_post', ['post_id' => $post->id ]) }}">EDIT</a>
+                    <a class="btn btn-info" href="{{ route('edit_post', ['post_id' => $post->id ]) }}">EDIT</a>
+                  </form>
+                </td>
+                <td>
+                  <form>
+                    <a class="btn btn-danger" href="{{ route('delete_post', ['post_id' => $post->id ]) }}">DELETE</a>
                   </form>
                 </td>
               </tr>

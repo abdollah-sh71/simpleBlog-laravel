@@ -75,6 +75,15 @@ class PostsController extends Controller
     	return view('admin.post.update', $data);
     }
 
+    public function delete($post_id)
+    {
+    	$post = Post::find($post_id);
+    	// $post->destroy(1);
+    	$post->cats()->detach();
+    	$post->delete();
+    	return redirect('admin/post/read');
+    }
+
     public function test()
     {
     	$posts = Post::find(5);

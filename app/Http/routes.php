@@ -21,12 +21,12 @@ Route::get('/', function () {
 Route::get('/test', 'PostsController@test' );
 
 
-Route::get('/admin/post/read', 'PostsController@read' );
+Route::get('/admin/post/read', 'PostsController@read' )->name('all_post');
 Route::get('/admin/post/create', 'PostsController@create' )->name('create_post');
 Route::post('/admin/post/create', 'PostsController@create' )->name('post_created');
 Route::get('/admin/post/update/{post_id}', 'PostsController@update' )->name('edit_post');
 Route::put('/admin/post/update/{post_id}', 'PostsController@update' )->name('post_edited');
-Route::get('/admin/post/delet/{post_id}', 'PostsController@delete' );
+Route::get('/admin/post/delete/{post_id}', 'PostsController@delete' )->name('delete_post');
 
 // 
 Route::get('/admin/category/read', 'CatsController@read' );
