@@ -2,29 +2,36 @@
         @section('content')
 
           <!-- Content Column -->
-          <div class="col-lg-12">
+          <div class="col-lg-6">
             <h2>Section Heading</h2>
             <table class="table table-striped table-bordered">
               <tr>
                 <td><strong>#</strong></td>
-                <td><strong>TITLE</strong></td>
-                <td><strong>FULL NAME</strong></td>
-                <td><strong>PHONE</strong></td>
+                <td><strong>name</strong></td>
               </tr>
 
-              @foreach($posts as $post)
+              @foreach($cats as $cat)
               <tr>
-                <td>{{ $post->id }}</td>
-                <td> {{$post->title}} </td>
-                <td>abdollah shams</td>
-                <td>
-                  <form>
-                    <a class="hollow button" href="{{ route('edit_post', ['post_id' => $post->id ]) }}">EDIT</a>
-                  </form>
-                </td>
+                <td>{{ $cat->id }}</td>
+                <td> {{$cat->name}} </td>
               </tr>
               @endforeach
             </table>
           </div>
+
+          <form method="POST" action="{{ route('cat_created') }}" >
+            <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="name">Category</label>
+                <input type="text" class="form-control" name="name" placeholder="category">
+                <span class="error"> {{$errors->first('name')}} </span>
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-success" name="delete" >
+              </div>
+
+            </div>
+          </form>
 
         @endsection

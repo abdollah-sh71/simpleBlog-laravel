@@ -21,16 +21,17 @@ Route::get('/', function () {
 Route::get('/test', 'PostsController@test' );
 
 
-Route::get('/admin/post/read', 'PostsController@read' )->name('all_post');
-Route::get('/admin/post/create', 'PostsController@create' )->name('create_post');
-Route::post('/admin/post/create', 'PostsController@create' )->name('post_created');
-Route::get('/admin/post/update/{post_id}', 'PostsController@update' )->name('edit_post');
-Route::put('/admin/post/update/{post_id}', 'PostsController@update' )->name('post_edited');
-Route::get('/admin/post/delete/{post_id}', 'PostsController@delete' )->name('delete_post');
+Route::get('/admin/post/read', 'PostsController@read' )->name('all_post')->middleware('auth');
+Route::get('/admin/post/create', 'PostsController@create' )->name('create_post')->middleware('auth');;
+Route::post('/admin/post/create', 'PostsController@create' )->name('post_created')->middleware('auth');;
+Route::get('/admin/post/update/{post_id}', 'PostsController@update' )->name('edit_post')->middleware('auth');;
+Route::put('/admin/post/update/{post_id}', 'PostsController@update' )->name('post_edited')->middleware('auth');;
+Route::get('/admin/post/delete/{post_id}', 'PostsController@delete' )->name('delete_post')->middleware('auth');;
 
 // 
-Route::get('/admin/category/read', 'CatsController@read' );
-Route::get('/admin/category/create', 'CatsController@create' );
-Route::get('/admin/category/update', 'CatsController@update' );
-Route::get('/admin/category/delete', 'CatsController@delete' );
+Route::get('/admin/category', 'CatsController@read' )->name('all_cat')->middleware('auth');;
+Route::post('/admin/category/create', 'CatsController@create' )->name('cat_created')->middleware('auth');;
 
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

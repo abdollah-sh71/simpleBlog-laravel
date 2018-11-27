@@ -42,9 +42,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="{{route('create_post')}}">add post <span class="sr-only">(current)</span></a></li>
         <li><a href="{{route('all_post')}}">all posts</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <li><a href=" {{route('all_cat')}} ">all category</a></li>
       </ul>
     </div>
 
