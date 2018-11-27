@@ -13,4 +13,24 @@
 
 Route::get('/', function () {
     return view('welcome');
+    // print_r($_POST);
 });
+
+
+
+Route::get('/test', 'PostsController@test' );
+
+
+Route::get('/admin/post/read', 'PostsController@read' );
+Route::get('/admin/post/create', 'PostsController@create' )->name('create_post');
+Route::post('/admin/post/create', 'PostsController@create' )->name('post_created');
+Route::get('/admin/post/update/{post_id}', 'PostsController@update' )->name('edit_post');
+Route::put('/admin/post/update/{post_id}', 'PostsController@update' )->name('post_edited');
+Route::get('/admin/post/delet/{post_id}', 'PostsController@delete' );
+
+// 
+Route::get('/admin/category/read', 'CatsController@read' );
+Route::get('/admin/category/create', 'CatsController@create' );
+Route::get('/admin/category/update', 'CatsController@update' );
+Route::get('/admin/category/delete', 'CatsController@delete' );
+
