@@ -30,6 +30,7 @@ class PostsController extends Controller
     		$new_post->save();
 
     		$new_post->cats()->attach( $request->input('cat') );
+            return redirect('admin/post/read');
     		
     	}
     	return view('admin.post.create', $data);

@@ -12,6 +12,7 @@ class BlogsController extends Controller
 {
     public function home()
     {
-    	return view('blog.home');
+    	$data['posts'] = Post::paginate(3);
+    	return view('blog.home', $data);
     }
 }
