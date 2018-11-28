@@ -22,7 +22,7 @@
               <p class="card-text"> {{$post->content}} </p>
             </div>
             <div class="card-footer text-muted">
-              Posted on January 1, 2017 by
+              {{$post->created_at}}
               <a href="#">Start Bootstrap</a>
             </div>
           </div>
@@ -42,10 +42,12 @@
             <h5 class="card-header">Search</h5>
             <div class="card-body">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
+                <form action="{{route('search_in_content')}}" method="GET">
+                  <input type="text" name="word" class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="submit">Go!</button>
+                  </span>
+                </form>
               </div>
             </div>
           </div>

@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::get('/blog', 'BlogsController@home' );
 Route::get('/blog/category/{cat_id}','BlogsController@searchByCategory' )->name('search_by_category');
+Route::get('/blog/search','BlogsController@searchInContent' )->name('search_in_content');
 Route::get('/test', 'PostsController@test' );
 
 

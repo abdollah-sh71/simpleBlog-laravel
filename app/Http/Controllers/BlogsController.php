@@ -21,12 +21,17 @@ class BlogsController extends Controller
     {
     	$data['posts'] = DB::select('SELECT * FROM `posts` JOIN `cat_post` ON `posts`.`id` = `cat_post`.`post_id` WHERE `cat_post`.`cat_id` = '.$cat_id );
     	$data['cats'] = Cat::all();
-    	// $all_post = DB::table('posts')->
-    	            // join('cat_posts', 'posts.id', '=', 'cat_posts.post_id')->
-    	            // where('cat_posts.cat_id', '=', $cat_id);
-    	// $data['posts']
-    	// echo "<pre>";
-    	// print_r($all_post);
     	return view('blog.searchByCategory', $data);
+    }
+
+    public function searchInContent(Request $request )
+    {
+    	$word = $request->input('word');
+    	$data['cats'] = Cat::all();
+    	$data['posts'] = Post::where('content', 'like', '%'.$word.'%')->orWhere('title', 'like',  '%'.$word.'%')->get();
+    	// echo "<pre>";
+    	// print_r($search);
+    	return view('blog.searchInContent', $data);
+
     }
 }
