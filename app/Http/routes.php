@@ -19,7 +19,12 @@ Route::get('/', function () {
 
 
 Route::get('/blog', 'BlogsController@home' );
+Route::get('/blog/category/{cat_id}','BlogsController@searchByCategory' )->name('search_by_category');
 Route::get('/test', 'PostsController@test' );
+
+
+
+
 
 
 Route::get('/admin/post/read', 'PostsController@read' )->name('all_post')->middleware('auth');

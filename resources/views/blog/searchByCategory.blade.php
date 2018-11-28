@@ -29,9 +29,7 @@
 @endforeach
          
 
-          
-          {{$posts->render()}}
-
+        
         </div>
 
         <!-- Sidebar Widgets Column -->
