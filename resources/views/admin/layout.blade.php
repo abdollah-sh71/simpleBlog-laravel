@@ -40,9 +40,15 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{{route('create_post')}}">add post <span class="sr-only">(current)</span></a></li>
-        <li><a href="{{route('all_post')}}">all posts</a></li>
-        <li><a href=" {{route('all_cat')}} ">all category</a></li>
+        <li {{Request::is('admin/post/create')? 'class=active': ""}}>
+          <a href="{{route('create_post')}}">add post</a>
+        </li>
+        <li {{Request::is('admin/post/read')? 'class=active': ""}} >
+          <a href="{{route('all_post')}}">all posts</a>
+        </li>
+        <li {{Request::is('admin/category')? 'class=active': ""}}>
+          <a href=" {{route('all_cat')}} ">all category</a>
+        </li>
       </ul>
     </div>
 

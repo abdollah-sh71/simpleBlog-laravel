@@ -36,9 +36,8 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="">add post <span class="sr-only">(current)</span></a></li>
-        <li><a href="">all posts</a></li>
-        <li><a href="">all category</a></li>
+        <li {{Request::is('/') ? 'class=active': ""}}><a href="{{route('blog')}}">blog</a></li>
+        <li><a href="/login">login</a></li>
       </ul>
     </div>
 
