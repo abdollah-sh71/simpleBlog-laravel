@@ -1,7 +1,7 @@
         @extends('admin.layout')
         @section('content')
 
-<form method="POST" action="{{ route('post_created') }}">
+<form method="POST" action="{{ route('post_created') }}" enctype="multipart/form-data">
 
           <!-- Content Column -->
 
@@ -32,6 +32,8 @@
               </label>
             </div>
             @endforeach
+            <input type="file" name="picture">
+            <small class="error">{{$errors->first('picture')}}</small>
           </div>
 
 </form>

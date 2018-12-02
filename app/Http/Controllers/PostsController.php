@@ -21,9 +21,16 @@ class PostsController extends Controller
     				'title' => 'required',
     				'content' => 'required',
     				'cat' => 'required',
+                    'picture' => 'image|max:1024'
     			]
     		);
 
+            $file = $request->file('picture');
+            if ($file->isValid()) {
+                $fileName = time().'_'.$file->getClientOriginalName();
+                $destinamtion = public_path().'/image';
+                $file->move($destinamtion, $fileName);
+            }
     		$new_post = new Post;
     		$new_post->title = $request->input('title');
     		$new_post->content = $request->input('content');
