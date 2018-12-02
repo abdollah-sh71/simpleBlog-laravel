@@ -62,7 +62,8 @@
                   <ul class="list-unstyled mb-0">
                     @foreach($cats as $cat)
                     <li>
-                      <a href="{{route('search_by_category', ['cat_id' => $cat->id])}}">{{$cat->name}}</a>
+                      <a href="{{route('search_by_category', ['cat_id' => $cat->id])}}">{{$cat->name}} <span class="badge"> {{$cat->posts->count()}} </span></a>
+</a>
                     </li>
                     @endforeach
                   </ul>

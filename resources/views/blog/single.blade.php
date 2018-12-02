@@ -35,7 +35,10 @@
 
           <!-- Post Content -->
           <p> {{$post->content}} </p>
-          <p>created at: {{$post->created_at}} </p>
+          <p><strong>created at:</strong> {{$post->created_at}} <strong>categories:</strong> 
+          @foreach($post->cats as $cat) 
+            <a href="{{route('search_by_category', ['cat_id' => $cat->id])}}">{{$cat->name}}</a>,
+          @endforeach </p>
 
           @endforeach
           <hr>
