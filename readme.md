@@ -1,4 +1,4 @@
-#simple blog with laravel framework
+# simple blog with laravel framework
 
 in this blog used:
 
@@ -12,7 +12,7 @@ in this blog used:
 
 5) many to many relation
 
-##and in continue i try to use
+## and in continue i try to use
 
 1)session
 
