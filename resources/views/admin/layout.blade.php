@@ -50,6 +50,11 @@
           <a href=" {{route('all_cat')}} ">all category</a>
         </li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/logout">logout</a>
+        </li>
+      </ul>
     </div>
 
       </div>
