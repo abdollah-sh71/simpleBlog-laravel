@@ -17,9 +17,11 @@
 @foreach($posts as $post)
           <!-- Blog Post -->
           <div class="card mb-4">
-            <div class="card-body">
+            @if($post->image_url)
+            <img class="card-img-top img-responsive" src="{{$post->image_url}}" alt="Card image cap">
+            @endif            <div class="card-body">
               <h2 class="card-title"> {{$post->title}} </h2>
-              <p class="card-text"> {{$post->content}} </p>
+              <p class="card-text"> {{$post->excerpt}} </p>
             </div>
             <div class="card-footer text-muted">
               {{$post->created_at}}
