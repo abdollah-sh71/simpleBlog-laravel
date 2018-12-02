@@ -28,8 +28,11 @@ class BlogsController extends Controller
 
     public function searchByCategory($cat_id)
     {
-    	// $data['posts'] = DB::select('SELECT * FROM `posts` JOIN `cat_post` ON `posts`.`id` = `cat_post`.`post_id` WHERE `cat_post`.`cat_id` = '.$cat_id );
-        $data['posts'] = Post::with('cats')->simplePaginate(3);
+    	// $data['posts'] = DB::select('SELECT * FROM `posts` JOIN (`cat_post` ON `posts`.`id` = `cat_post`.`post_id` WHERE `cat_post`.`cat_id` = 1) AND JOIN (`cats` ON `cat_post`.`cat_id` = `cats`.`id`)' );
+        $cats = Cat::find($cat_id);
+        $data['posts'] = $cats->posts;
+        // echo "<pre>";
+        // print_r($data['posts']);
     	$data['cats'] = Cat::all();
     	return view('blog.searchByCategory', $data);
     }
@@ -38,7 +41,7 @@ class BlogsController extends Controller
     {
     	$word = $request->input('word');
     	$data['cats'] = Cat::all();
-    	$data['posts'] = Post::where('content', 'like', '%'.$word.'%')->orWhere('title', 'like',  '%'.$word.'%')->simplePaginate(3);
+    	$data['posts'] = Post::where('content', 'like', '%'.$word.'%')->orWhere('title', 'like',  '%'.$word.'%')->get();
     	// echo "<pre>";
     	// print_r($search);
     	return view('blog.searchInContent', $data);
