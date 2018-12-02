@@ -27,6 +27,7 @@
               {{$post->created_at}}
               <a href="#">Start Bootstrap</a>
             </div>
+              <a class="btn btn-info" href="{{ route('single_page', ['post_id'=> $post->id])}}">read more...</a><hr>
           </div>
 @endforeach
          

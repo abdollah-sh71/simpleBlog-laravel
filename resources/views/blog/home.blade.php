@@ -16,7 +16,7 @@
         <div class="col-md-8">
 @foreach($posts as $post)
           <!-- Blog Post -->
-          <div class="card mb-4">
+          <div class="card mb-4 borderPost">
             @if($post->image_url)
             <img class="card-img-top img-responsive" src="{{$post->image_url}}" alt="Card image cap">
             @endif
@@ -28,6 +28,7 @@
               {{$post->created_at}}
               <a href="#">Start Bootstrap</a>
             </div>
+              <a class="btn btn-info" href="{{ route('single_page', ['post_id'=> $post->id])}}">read more...</a><hr>
           </div>
 @endforeach
          
