@@ -34,6 +34,7 @@ class PostsController extends Controller
     		$new_post = new Post;
     		$new_post->title = $request->input('title');
     		$new_post->content = $request->input('content');
+            $new_post->picture = $fileName;
     		$new_post->save();
 
     		$new_post->cats()->attach( $request->input('cat') );
